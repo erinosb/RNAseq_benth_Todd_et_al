@@ -814,6 +814,12 @@ write(UP_in_HOPBA1_intersect, file = "../03_output/LIST_UP_in_hopBA1_intersectio
 
 write(DOWN_in_HOPBA1_intersect, file = "../03_output/LIST_DOWN_in_hopBA1_intersection.txt", sep = "\n")
 
+## Print out the tissue-specific lists
+
+write(rownames(UP_in_HOPBA1_leaves), file = "../03_output/LIST_UP_in_hopBA1_leaves.txt", sep = "\n")
+write(rownames(DOWN_in_HOPBA1_leaves), file = "../03_output/LIST_DOWN_in_hopBA1_leaves.txt", sep = "\n")
+write(rownames(UP_in_HOPBA1_petioles), file = "../03_output/LIST_UP_in_hopBA1_petioles.txt", sep = "\n")
+write(rownames(DOWN_in_HOPBA1_petioles), file = "../03_output/LIST_DOWN_in_hopBA1_petioles.txt", sep = "\n")
 
 
 # Please cite R in your publications when using it
