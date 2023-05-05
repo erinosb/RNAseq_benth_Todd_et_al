@@ -1,0 +1,15 @@
+Status	../03_output/2023-04-21_output/02_hisat2/MTN01.sam	../03_output/2023-04-21_output/02_hisat2/MTN02.sam	../03_output/2023-04-21_output/02_hisat2/MTN03.sam	../03_output/2023-04-21_output/02_hisat2/MTN04.sam	../03_output/2023-04-21_output/02_hisat2/MTN05.sam	../03_output/2023-04-21_output/02_hisat2/MTN06.sam	../03_output/2023-04-21_output/02_hisat2/MTN07.sam	../03_output/2023-04-21_output/02_hisat2/MTN08.sam	../03_output/2023-04-21_output/02_hisat2/MTN09.sam	../03_output/2023-04-21_output/02_hisat2/MTN10.sam	../03_output/2023-04-21_output/02_hisat2/MTN11.sam	../03_output/2023-04-21_output/02_hisat2/MTN12.sam
+Assigned	67749920	69916971	61847448	62886583	66819616	74627982	54050411	61318038	19769337	53830723	56248473	61093009
+Unassigned_Unmapped	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Read_Type	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Singleton	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_MappingQuality	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Chimera	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_FragmentLength	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Duplicate	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_MultiMapping	57204839	57693740	51939611	58376101	49721913	45301493	72100191	70503191	22103611	85458086	68907910	68076004
+Unassigned_Secondary	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_NonSplit	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_NoFeatures	24667726	23915445	21956723	27460748	28413252	30987452	17118947	17747016	6233562	25051454	24017444	24501452
+Unassigned_Overlapping_Length	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Ambiguity	962854	1209415	939343	397567	435333	435866	1477415	1739950	532419	622671	586449	753897
