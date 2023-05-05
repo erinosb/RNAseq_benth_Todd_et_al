@@ -49,7 +49,17 @@
 #install.packages("RColorBrewer")
 
 ### SPLITCONDITIONS: Install ashr
-install.packages("ashr")
+#install.packages("ashr")
+
+#install.packages("UpSetR")
+
+
+#if (!require("BiocManager", quietly = TRUE))
+ # install.packages("BiocManager")
+
+#BiocManager::install("ComplexHeatmap")
+
+
 
 
 ######### DONE WITH: FIRST TIME USE ONLY SECTION ########################
@@ -68,6 +78,10 @@ library(apeglm)
 
 ### SPLITCONDITIONS: Load ashr
 library("ashr")
+
+library("UpSetR")
+library("ComplexHeatmap")
+
 #################################################
 
 
@@ -714,11 +728,58 @@ dim(sign_leaf)
 dim(sign_petiole)
 head(sign_leaf)
 head(sign_petiole)
+str(results_in_leaves_2)
+plotCounts(CCdds, gene=which(rownames(results_in_leaves_2) == "Niben261Chr01g0071007.1"), intgroup="combocond")
+
+DOWN_in_HOPBA1_leaves <- subset(sign_leaf, log2FoldChange > 1)
+DOWN_in_HOPBA1_leaves <- DOWN_in_HOPBA1_leaves[order(DOWN_in_HOPBA1_leaves$log2FoldChange, decreasing = TRUE),]
+dim(DOWN_in_HOPBA1_leaves)
+
+UP_in_HOPBA1_leaves <- subset(sign_leaf, log2FoldChange < -1)
+UP_in_HOPBA1_leaves <- UP_in_HOPBA1_leaves[order(UP_in_HOPBA1_leaves$log2FoldChange, decreasing = FALSE),]
+dim(UP_in_HOPBA1_leaves)
+UP_in_HOPBA1_leaves
+
+# Check we've got everyone
+255+567
+dim(sign_leaf)
+
+DOWN_in_HOPBA1_petioles <- subset(sign_petiole, log2FoldChange > 1)
+DOWN_in_HOPBA1_petioles <- DOWN_in_HOPBA1_petioles[order(DOWN_in_HOPBA1_petioles$log2FoldChange, decreasing = TRUE),]
+DOWN_in_HOPBA1_petioles
+dim(DOWN_in_HOPBA1_petioles)
+
+
+UP_in_HOPBA1_petioles <- subset(sign_petiole, log2FoldChange < -1)
+UP_in_HOPBA1_petioles <- UP_in_HOPBA1_petioles[order(UP_in_HOPBA1_petioles$log2FoldChange, decreasing = FALSE),]
+UP_in_HOPBA1_petioles
+dim(UP_in_HOPBA1_petioles)
+
+92 + 375
+dim(sign_petiole)
 
 
 
-# Get versions
-sessionInfo()
+
+lt = list(UP_in_HOPBA1_leaves_list = rownames(UP_in_HOPBA1_leaves),
+          DOWN_in_HOPBA1_leaves_list = rownames(DOWN_in_HOPBA1_leaves),
+          UP_in_HOPBA1_petioles_list = rownames(UP_in_HOPBA1_petioles),
+          DOWN_in_HOPBA1_petioles_list = rownames(DOWN_in_HOPBA1_petioles))
+
+lt
+list_to_matrix(lt)
+m1 = make_comb_mat(lt)
+set_name(m1)
+comb_name(m1)
+set_size(m1)
+comb_size(m1)
+comb_degree(m1)
+t(m1)
+
+
+UpSet(m1)
+
+
 
 # Please cite R in your publications when using it
 citation()
