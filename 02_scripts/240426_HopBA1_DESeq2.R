@@ -654,6 +654,7 @@ class(changing_lrt_rdl_LEAF)
 
 #Subset the LEAF differential genes
 changing_lrt_rdl_LEAF <- subset(changing_lrt_rdl_LEAF, rownames(changing_lrt_rdl_LEAF) %in% rownames(sign_leaf))
+dim(changing_lrt_rdl_LEAF)
 text2 = dim(changing_lrt_rdl_LEAF)[1]
 
 # Draw Heatmap #2
@@ -767,7 +768,9 @@ lt = list(UP_in_HOPBA1_leaves_list = rownames(UP_in_HOPBA1_leaves),
           DOWN_in_HOPBA1_petioles_list = rownames(DOWN_in_HOPBA1_petioles))
 
 lt
+str(lt)
 list_to_matrix(lt)
+
 m1 = make_comb_mat(lt)
 set_name(m1)
 comb_name(m1)
@@ -777,7 +780,39 @@ comb_degree(m1)
 t(m1)
 
 
-UpSet(m1)
+ss = set_size(m1)
+cs = comb_size(m1)
+
+plot_t <- UpSet(m1, 
+      set_order = order(ss),
+      comb_order = order(comb_degree(m1), -cs),
+      comb_col = c("blue", "lightblue", "black")[comb_degree(m1)],
+      left_annotation = upset_left_annotation(m1))
+
+# Save the clustered heatmap plot as a .pdf:
+
+pdf("../03_output/Upset_plot_significant_genes.pdf", width = 6, height = 4)
+
+plot_t
+
+dev.off()
+dev.off()
+
+#### Find the overlapping genes ####
+
+UP_in_HOPBA1_intersect <- Reduce(intersect,list(rownames(UP_in_HOPBA1_leaves),rownames(UP_in_HOPBA1_petioles)))
+UP_in_HOPBA1_intersect
+length(UP_in_HOPBA1_intersect)
+
+DOWN_in_HOPBA1_intersect <- Reduce(intersect,list(rownames(DOWN_in_HOPBA1_leaves),rownames(DOWN_in_HOPBA1_petioles)))
+DOWN_in_HOPBA1_intersect
+length(DOWN_in_HOPBA1_intersect)
+
+## Print the overlapping gene lists to files:
+
+write(UP_in_HOPBA1_intersect, file = "../03_output/LIST_UP_in_hopBA1_intersection.txt", sep = "\n")
+
+write(DOWN_in_HOPBA1_intersect, file = "../03_output/LIST_DOWN_in_hopBA1_intersection.txt", sep = "\n")
 
 
 
