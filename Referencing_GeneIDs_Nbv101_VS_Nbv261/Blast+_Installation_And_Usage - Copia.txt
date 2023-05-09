@@ -1,0 +1,12 @@
+# Download Blast+ from https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html
+
+# Install Blast+
+
+# Transfer FASTA file that will serve as reference to Blast+'s main directory
+
+# Create a database from the reference FASTA file from the command line
+	* makeblastdb -in Niben101_annotation.proteins.fasta -dbtype prot
+
+# Run blastp from the command line
+	* blastp -query Niben261_genome.annotation.proteins.singleline.fasta -db Niben101_annotation.proteins.fasta -out Niben261_101_ID_Cross_Reference.txt -outfmt "6 qseqid sseqid pident qlen slen length mismatch gapopen qstart qend sstart send evalue bitscore" -max_target_seqs 1 -num_threads 8
+	
