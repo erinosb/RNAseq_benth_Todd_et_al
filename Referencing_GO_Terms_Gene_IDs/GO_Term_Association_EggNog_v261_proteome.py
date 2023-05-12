@@ -5,7 +5,7 @@ import openpyxl
 # Disable warning when replacing "GO:" with an empty string
 pd.options.mode.chained_assignment = None  # default='warn'.
 
-# Convert the excel file into a dictionary where the keys are the sheet names and the values are the resulting dataframes
+# Read EggNog Excel file
 df = pd.read_excel("EggNog_v261_proteome_HopBA1_RNAseq.xlsx",
                    sheet_name = "EggNog v261 proteome",
                    header=2,
